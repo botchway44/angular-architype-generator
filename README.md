@@ -18,4 +18,4 @@ This cli tool allows you to generate angular project templates with folder struc
 
 ## Contributing
 
-See [Contributing](./README.md)
+See [Contributing](./CONTRIBUTING.md)
