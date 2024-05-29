@@ -9,7 +9,7 @@ const program = new Command();
 
 
 program
-  .version('0.1.0')
+  .version('0.1.1')
   .description('An example CLI for generating angular projects')
   .option('-g, --generate  <value>', 'Generate new project with Name')
   .parse(process.argv);
