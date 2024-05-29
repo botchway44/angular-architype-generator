@@ -37,7 +37,7 @@ if (!process.argv.slice(2).length) {
 
 // If there is no program name, stop the program and request for name
 if(options.generate && options.generate.length > 2){
-  const name= options.name
+  const name= options.generate
   echo(green(`Creating prject with name ${name}`));
 
   exec(`ng new ${name}`);

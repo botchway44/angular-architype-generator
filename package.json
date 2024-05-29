@@ -1,17 +1,16 @@
 {
-  "name": "archetype-generator",
+  "name": "archgen-cli",
   "main": "./dist/index.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "commonjs",
   "scripts": {
-     "build": "rm -rf dist && tsc",
+    "build": "rm -rf dist && tsc",
     "start": "ts-node  src/index.ts",
     "lint": "npx eslint src/**/* --fix"
   },
   "bin": {
-    "archgen": "./dist/index.js"
+    "archgen": "dist/index.js"
   },
-
   "dependencies": {
     "async-shelljs": "^0.1.4",
     "chalk": "^5.3.0",
