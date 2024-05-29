@@ -1,0 +1,16 @@
+function throttle<F extends (...args: any[]) => void>(func: F, timeout: number) {
+  let ready = true;
+
+  return (...args: Parameters<F>) => {
+    if (!ready) {
+      return;
+    }
+
+    ready = false;
+    func(...args);
+
+    setTimeout(() => {
+      ready = true;
+    }, timeout);
+  };
+}

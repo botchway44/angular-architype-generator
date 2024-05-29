@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "plugin:@shopify/typescript",
+    "plugin:@shopify/typescript-type-checking",
+  ],
+  "parserOptions": {
+    "project": "tsconfig.json",
+  },
+  "rules": {
+    "object-curly-spacing": "off",
+    "@typescript-eslint/object-curly-spacing": "error",
+    "@babel/object-curly-spacing": "off",
+    "typescript-eslint/object-curly-spacing": "off",
+  },
+}

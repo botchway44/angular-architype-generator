@@ -1,59 +1,90 @@
 #! /usr/bin/env node
-
-// var shell = require('shelljs');
-// import * as chalk from 'chalk'
-import { which, echo, exit, exec } from "shelljs"
-// const chalk = require('chalk');
-// import chalk from 'chalk';
-import { blue } from 'colors';
-import figlet from "figlet"
-import { Command } from "commander"
+ 
+import { which, echo, exit, cp } from 'shelljs';
+import { exec } from 'async-shelljs';
+import { blue, green, red } from 'colors';
+import figlet from 'figlet';
+import { Command } from 'commander';
 const program = new Command();
 
+
 program
-  .version("1.0.0")
-  .description("An example CLI for managing a directory")
-  .option("-l, --ls  [value]", "List directory contents")
-  .option("-m, --mkdir <value>", "Create a directory")
-  .option("-t, --touch <value>", "Create a file")
+  .version('0.1.0')
+  .description('An example CLI for generating angular projects')
+  .option('-g, --generate  <value>', 'Generate new project with Name')
   .parse(process.argv);
 
-console.log(figlet.textSync("Architype"));
-program.outputHelp()
+echo(figlet.textSync('ArchGen'));
+// program.outputHelp();
 
-// const options = program.opts();
+const options = program.opts();
+
+// console.log("PROGRAM OPTIONS", options)
+
 
 if (!which('ng')) {
-  echo('Sorry, this script requires @angular/cli install');
-  echo('Sorry, this script requires @angular/cli installed');
+  echo(red('Sorry, this script requires @angular/cli install'));
   exit(1);
 }
 
 
-console.log(blue("Hello World"));
-console.log('hello'.green)
+//if there are no options passed, show help
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+  exit(1);
 
-exec("ng new appFolder", () => {
-  console.log("Done ... ")
+}
 
-  //create a shared folder
+// If there is no program name, stop the program and request for name
+if(options.generate && options.generate.length > 2){
+  const name= options.name
+  echo(green(`Creating prject with name ${name}`));
 
-  //
-  /** [app]
-   * 
-   * - modules
-   *    - dashboard
-   *    - authentication
-   * 
-   * - shared
-   *    - utils
-   *    - constants
-   *    - models
-   *    - services
-   *    - lib
-   *    - shared.module.ts
-   */
-})
-// console.log("Starting shell", Colors)
+  exec(`ng new ${name}`);
+  echo(green(`Done creating project ${name} 🚀 `));
+
+
+// console.log(blue('Hello World'));
+// console.log('hello'.green);
+
+
+
+  // COPY FILES
+// cp('-rf', 'samples/shared', 'appFolder/src/app')
+
+exit(0);
+}else{
+  echo(red('\nProject name should be more than 2 characters'));
+
+  exit(1);
+}
+
+ 
+
+// ng new appFolder
+// exec('mkdir test', () => {
+//   console.log('Done ... ')
+
+//   //create a shared folder
+
+//   //
+//   /** [app]
+//    * 
+//    * - modules
+//    *    - dashboard
+//    *    - authentication
+//    * 
+//    * - shared
+//    *    - utils
+//    *    - constants
+//    *    - models
+//    *    - services
+//    *    - lib
+//    *    - shared.module.ts
+//    */
+
+//   cp('-rf', 'samples/shared', 'appFolder/src/app')
+// })
+// // console.log('Starting shell', Colors)
 
 

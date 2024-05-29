@@ -1,0 +1,5 @@
+
+export class AppConstant {
+  static APP_NAME = "{{REPLACE WITH APP NAME}}";
+  static SUCCESS_CODE = "000";
+}

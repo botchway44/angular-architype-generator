@@ -1,15 +1,19 @@
 {
-  "name": "architype-generator",
+  "name": "archetype-generator",
+  "main": "./dist/index.js",
+  "type": "commonjs",
   "scripts": {
     "build:swc": "swc src/index.ts -d dist/",
     "build": "rm -rf dist && tsc",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node  src/index.ts",
+    "lint": "npx eslint src/**/* --fix"
   },
   "bin": {
-    "architype": "dist/index.js"
+    "archetype": "./dist/index.js"
   },
-  "type": "commonjs",
+
   "dependencies": {
+    "async-shelljs": "^0.1.4",
     "chalk": "^5.3.0",
     "colors": "^1.4.0",
     "commander": "^12.1.0",
@@ -19,13 +23,13 @@
     "zx": "^8.1.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.3.0",
-    "@swc/cli": "^0.3.12",
-    "@swc/core": "^1.5.7",
-    "@types/eslint__js": "^8.42.3",
+    "@shopify/eslint-plugin": "^45.0.0",
+    "@stylistic/eslint-plugin-ts": "^2.1.0",
     "@types/figlet": "^1.5.8",
+    "@types/node": "^20.12.12",
     "@types/shelljs": "^0.8.15",
     "eslint": "^8.57.0",
+    "tslib": "^2.6.2",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.11.0"
   }
