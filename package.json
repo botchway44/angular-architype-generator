@@ -1,15 +1,15 @@
 {
   "name": "archetype-generator",
   "main": "./dist/index.js",
+  "version": "0.1.0",
   "type": "commonjs",
   "scripts": {
-    "build:swc": "swc src/index.ts -d dist/",
-    "build": "rm -rf dist && tsc",
+     "build": "rm -rf dist && tsc",
     "start": "ts-node  src/index.ts",
     "lint": "npx eslint src/**/* --fix"
   },
   "bin": {
-    "archetype": "./dist/index.js"
+    "archgen": "./dist/index.js"
   },
 
   "dependencies": {

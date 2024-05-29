@@ -1,5 +1,5 @@
 {
-  "name": "@generators/angular-architype-generator",
+  "name": "@generators/archgen",
   "version": "0.1.0",
   "exports": "./src/index.ts"
 }
